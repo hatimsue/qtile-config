@@ -3,12 +3,14 @@ Provide groups configuration
 '''
 from libqtile.config import Match
 from .icons import icons
+import re
 
 groups_config = [
     {
         'name': '1',
         'label': icons['chrome'],
-        'matches': [Match(wm_class=["Google-chrome"])],
+        'matches': [Match(wm_class=re.compile(r"^(firefox)$"))],
+        #'matches': [Match(wm_class=["firefox"])],
     },
     {
         'name': '2',
@@ -23,7 +25,8 @@ groups_config = [
     {
         'name': '4',
         'label': icons['fish'],
-        'matches': [Match(wm_class=["Org.gnome.Nautilus"])],
+        'matches': [Match(title=re.compile(r"^(ranger)$"))],
+        #'matches': [Match(wm_class=["Org.gnome.Nautilus"])],
     },
     {
         'name': '5',
@@ -33,7 +36,7 @@ groups_config = [
     {
         'name': '6',
         'label': icons['firefox'],
-        'matches': [Match(wm_class=["firefox"])],
+        'matches': [],
     },
     {
         'name': '7',
@@ -43,17 +46,17 @@ groups_config = [
     {
         'name': '8',
         'label': icons['spotify'],
-        'matches': [Match(wm_class=["Spotify", "vlc"])],
+        'matches': [Match(wm_class=re.compile(r"^(Spotify|vlc)$"))],
     },
     {
         'name': '9',
         'label': icons['video_camera'],
-        'matches': [Match(wm_class=["obs"])],
+        'matches': [Match(wm_class=re.compile(r"^(obs)$"))],
     },
     {
         'name': '0',
         'label': icons['ubuntu'],
-        'matches': [Match(wm_class=["Bitwarden"])],
+        'matches': [Match(wm_class=re.compile(r"^(Bitwarden)$"))],
     },
     
 ]
